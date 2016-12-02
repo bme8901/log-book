@@ -11,11 +11,67 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="FriendsDB">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
-      <layoutsDirectory enabled="false"/>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
       <modelsDirectory/>
-      <modulesDirectory enabled="false"/>
+      <modulesDirectory>
+        <moduleDirectory moduleName="API">
+          <configsDirectory enabled="false"/>
+          <controllersDirectory>
+            <controllerFile controllerName="FriendDB">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="People">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="States">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Visits">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+          </controllersDirectory>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false"/>
+          <modelsDirectory>
+            <modelFile modelName="People"/>
+            <modelFile modelName="States"/>
+            <modelFile modelName="Visits"/>
+            <dbTableDirectory>
+              <dbTableFile dbTableName="FriendsDB"/>
+            </dbTableDirectory>
+            <modelFile modelName="FriendsDBMapper"/>
+            <modelFile modelName="FriendsDB"/>
+          </modelsDirectory>
+          <servicesDirectory enabled="false"/>
+          <viewsDirectory>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="FriendDB">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="People">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="States">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Visits">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+      </modulesDirectory>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
         <viewScriptsDirectory>
@@ -24,6 +80,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="FriendsDB">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
