@@ -21,7 +21,9 @@
           <layoutScriptFile layoutName="layout"/>
         </layoutScriptsDirectory>
       </layoutsDirectory>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <modelFile modelName="Test"/>
+      </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="API">
           <configsDirectory enabled="false"/>
@@ -36,6 +38,12 @@
               <actionMethod actionName="index"/>
             </controllerFile>
             <controllerFile controllerName="Visits">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="ApiIndex">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Index">
               <actionMethod actionName="index"/>
             </controllerFile>
           </controllersDirectory>
@@ -64,6 +72,12 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Visits">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="ApiIndex">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>

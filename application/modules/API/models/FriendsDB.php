@@ -18,7 +18,7 @@ class API_Model_FriendsDB
       {
           $method = 'set' . $name;
           if (('mapper' == $name) || !method_exists($this, $method)) {
-              throw new Exception('Invalid guestbook property');
+              throw new Exception('Invalid property');
           }
           $this->$method($value);
       }
@@ -27,7 +27,7 @@ class API_Model_FriendsDB
       {
           $method = 'get' . $name;
           if (('mapper' == $name) || !method_exists($this, $method)) {
-              throw new Exception('Invalid guestbook property');
+              throw new Exception('Invalid property');
           }
           return $this->$method();
       }
@@ -86,6 +86,10 @@ class API_Model_FriendsDB
       public function getFavFood()
       {
           return $this->_favfood;
+      }
+
+      public function toArray(){
+        return $this->
       }
 
 

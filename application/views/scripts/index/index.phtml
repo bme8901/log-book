@@ -41,3 +41,114 @@
         </p>
     </div>
 </div>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Part One</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <?php
+  //require_once "init.php";
+  ?>
+<div class="container-fluid">
+<center>
+<nav class="navbar-default nav-inline navbar-fixed-top navbar-full">
+  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navHeaderCollapse"><span class = "icon-bar"></span><span class = "icon-bar"></span><span class = "icon-bar"></span></button>
+  <div class="container-fluid">
+  <a class="navbar-brand" href="index.php">Part 2</a>
+  <div class="collapse navbar-collapse navHeaderCollapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a class="navbar-link" href="#">Home</a></li>
+      <li><a class="navbar-link" href="#">About Us</a></li>
+      <li><a class="navbar-link" href="#">Contact</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+
+<div class="container-fluid">
+<div class="jumbotron jumbotron-fluid">
+<div class="container-fluid">
+<h1 class="display-text">Add a friend.</h1>
+<p>With add a friend, you can<i> add a friend</i></p>
+<a class="btn btn-primary btn-lg" href="#">Learn more!</a>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div id="info_form" class="col-lg-4 col-md-12 col-xs-12">
+    <select class="people_id_list">
+        <option class="people_id_item">    Select Name     </option>
+      </select>
+<div id="info_person">
+  <div class="display_info">
+  </div>
+  <div class="display_visits">
+  </div>
+</div>
+</div>
+<div id="display_success">
+</div>
+<div class="info_add col-lg-4 col-md-12 col-xs-12">
+<button class="add_person_btn" data-toggle="modal" data-target="#person_modal">Add Person</button>
+<button class="add_visit_btn" data-toggle="modal" data-target="#visit_modal">Add Visit</button>
+</div>
+<div class="modal fade" id="person_modal">
+  <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">Add A Person
+    </div>
+    <div class="modal-body">
+      <form method="post" class="person_frm">
+        First Name: <input type="text" name="_fname"><br    />
+        Last Name: <input type="text" name="_lname"><br   />
+        Favorite Food: <input type="text" name="_favfood"><br   />
+        <button class="person_btn btn btn-default" type="submit" data-dismiss="modal">Submit</button>
+      </form>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div> -->
+</div>
+</div>
+</div>
+<div class="modal fade" id="visit_modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">Add A Visit</div>
+<div class="modal-body">
+  <form method="post" class="visit_form">
+    Select Person:<select class="people_id_list_add" name="person-add"></select>
+    Date Visited:<input type="text" name="date-vis"><br     />
+    Select State:<select class="state_id_list" name="state-vis"></select><br    />
+    <button class="visit_btn btn btn-default" type="submit" data-dismiss="modal">Submit</button>
+  </form>
+</div>
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div> -->
+</div>
+</div>
+</div>
+<div name="response">
+</div>
+</div>
+</center>
+
+
+</div>
+
+</body>
+</html>

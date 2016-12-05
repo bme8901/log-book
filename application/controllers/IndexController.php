@@ -11,8 +11,9 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $test = new API_Model_FriendsDB();
+        return $test;
     }
 
 
 }
-

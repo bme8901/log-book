@@ -1,6 +1,7 @@
 <?php
 
-class API_FriendDBController extends Zend_Controller_Action
+
+class API_IndexController extends Zend_Controller_Action
 {
 
     public function init()
@@ -11,8 +12,8 @@ class API_FriendDBController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        $friends = new API_Model_FriendsDBMapper();
-        $this->view->entries = $friends->fetchAll();
+        $apiData = new API_Model_FriendsDBMapper();
+        $this->view->entries = $apiData->fetchAll();
     }
 
 

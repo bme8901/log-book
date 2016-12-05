@@ -2,7 +2,6 @@
 
 class API_Model_FriendsDBMapper
 {
-
   protected $_dbTable;
 
   public function setDbTable($dbTable)
@@ -49,9 +48,9 @@ class API_Model_FriendsDBMapper
         }
         $row = $result->current();
         $friends->setId($row->id_p)
-                ->setFirst($row->first_name)
-                ->setLast($row->last_name)
-                ->setFood($row->fav_food);
+                ->setFirstName($row->first_name)
+                ->setLastName($row->last_name)
+                ->setFavFood($row->fav_food);
     }
 
     public function fetchAll()
@@ -61,14 +60,21 @@ class API_Model_FriendsDBMapper
         foreach ($resultSet as $row) {
             $entry = new API_Model_FriendsDB();
             $entry->setId($row->id_p)
-                  ->setFirst($row->first_name)
-                  ->setLast($row->last_name)
-                  ->setFood($row->fav_food);
+                  ->setFirstName($row->first_name)
+                  ->setLastName($row->last_name)
+                  ->setFavFood($row->fav_food);
             $entries[] = $entry;
         }
-        return $entries;
+
+        $resultArray = [];
+        foreach($entries as $entry) {
+          $resultArray[] = [
+            'firstname' => $entry->firstname,
+          ]
+        }
+        //return $entries;
+        print_r($entries);
+
     }
-
-
 
 }
