@@ -12,11 +12,6 @@ class API_PeopleController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        /*$request = Zend_Controller_Front::getQuery();
-        print_r($request);
-        */
-        /*$params = $this->_request->getParams();
-        print_r($params);*/
         $apiData = new API_Model_FriendsDBMapper();
         $this->view->entries = $apiData->fetchAll();
 

@@ -1,6 +1,6 @@
 <?php
 
-class API_Model_FriendsDBMapper
+class API_Model_StatesDBMapper
 {
   protected $_dbTable;
 
@@ -19,12 +19,12 @@ class API_Model_FriendsDBMapper
   public function getDbTable()
   {
     if (null === $this->_dbTable){
-      $this->setDbTable('API_Model_DbTable_FriendsDB');
+      $this->setDbTable('API_Model_DbTable_StatesDB');
     }
     return $this->_dbTable;
   }
 
-  /*public function save(API_Model_FriendsDB $friends)
+  /*public function save(API_Model_StatesDB $friends)
     {
         $data = array(
             'id'   => $friends->getId(),
@@ -40,7 +40,7 @@ class API_Model_FriendsDBMapper
         }
     }
 
-    public function find($id, API_Model_FriendsDB $friends)
+    public function find($id, API_Model_StatesDB $friends)
     {
         $result = $this->getDbTable()->find($id);
         if (0 == count($result)) {
@@ -73,22 +73,20 @@ class API_Model_FriendsDBMapper
         $result = $this->getDbTable()->fetchAll();
         $entries   = array();
         foreach ($result as $row) {
-            $entry = new API_Model_FriendsDB();
-            $entry->setId($row->id_p)
-                  ->setFirstName($row->first_name)
-                  ->setLastName($row->last_name)
-                  ->setFavFood($row->fav_food);
+            $entry = new API_Model_StatesDB();
+            $entry->setId($row->id_s)
+                  ->setStateAbb($row->state_abb)
+                  ->setStateName($row->state_name);
             $entries[] = $entry;
         }
 
 
         foreach($entries as $entryobj){
-          if($apiVars['people'] == $entryobj->id){
+          if($apiVars['states'] == $entryobj->id){
           $resultArray[] = [
             'id'        => $entryobj->id,
-            'firstname' => $entryobj->firstname,
-            'lastname'  => $entryobj->lastname,
-            'fav food'  => $entryobj->favfood
+            'stateabb' => $entryobj->stateabb,
+            'statename'  => $entryobj->statename
           ];
       }
     }
@@ -102,20 +100,18 @@ class API_Model_FriendsDBMapper
         $resultSet = $this->getDbTable()->fetchAll();
         $entries   = array();
         foreach ($resultSet as $row) {
-            $entry = new API_Model_FriendsDB();
-            $entry->setId($row->id_p)
-                  ->setFirstName($row->first_name)
-                  ->setLastName($row->last_name)
-                  ->setFavFood($row->fav_food);
+            $entry = new API_Model_StatesDB();
+            $entry->setId($row->id_s)
+                  ->setStateAbb($row->state_abb)
+                  ->setStateName($row->state_name);
             $entries[] = $entry;
         }
 
         foreach($entries as $entryobj){
           $resultArray[] = [
             'id'        => $entryobj->id,
-            'firstname' => $entryobj->firstname,
-            'lastname'  => $entryobj->lastname,
-            'fav food'  => $entryobj->favfood
+            'stateabb' => $entryobj->stateabb,
+            'statename'  => $entryobj->statename
           ];
         }
 

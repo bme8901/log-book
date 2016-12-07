@@ -5,30 +5,32 @@ function getDropdowns(){
 $('.people_id_list').append(function(){
     $.ajax({
       type: 'GET',
-      url: 'API/people',
-      dataType: 'json',
+      url: 'api/people',
       success: function(response){
-        var len = response.length;
-        console.log(response);
+        /*var len = response.length;
+        console.log(response[50]);
         $('.people_id_list').empty();
-        for(var i=0; i<len; i++){
-          var id = response[i]['id_p'];
-          var fname = response[i]['first_name'];
-          var lname = response[i]['last_name'];
+        //for(var i=0; i<len; i++){
+          var id = response[0]["id"];
+          var fname = response[0]["firstname"];
+          var lname = response[0]['lastname'];
           $('.people_id_list').append("<option value='"+id+"' name='"+id+"' id='"+fname+"'>"+fname+ " "+lname+"</option>");
-        }
+        }*/
+
+        $.each(data, function(n, elem){
+          console.log("lol");
+        });
 
       },
       error: function(response){
-        console.log('error');
+        console.log(error);
       }
 });
 });
 $('.people_id_list_add').append(function(){
     $.ajax({
       type: 'GET',
-      url: 'API/people',
-      dataType: 'json',
+      url: 'api/people',
       success: function(response){
         var len = response.length;
         $('.people_id_list_add').empty();
@@ -60,8 +62,8 @@ function displayData(){
 var user_id = $('.people_id_list').val();
 $.ajax({
   type: 'GET',
-  url: 'API/visits/'+user_id,
-  dataType: "json",
+  //url: 'api/visits/'+user_id,
+  url: 'api/people',
   success: function(response){
     $('.display_info').empty();
     $('.display_visits').empty();
@@ -83,7 +85,6 @@ $.ajax({
     $.ajax({
       type: 'GET',
       url: 'API/people/'+user_id,
-      dataType: "json",
       success: function(response){
         $('.display_info').empty();
         $('.display_visits').empty();
@@ -103,7 +104,6 @@ function displayStates(){
   $.ajax({
     type: 'GET',
     url: 'API/states',
-    dataType: "json",
     success: function(response){
       var len = response.length;
       $('.state_id_list').empty();

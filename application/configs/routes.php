@@ -9,10 +9,11 @@ $apiRoute = new Zend_Controller_Router_Route(
     )
 );
 
-$router->addRoute('default', $apiRoute);
+$router->addRoute('apipeople', $apiRoute);
+
 
 $apiRoute = new Zend_Controller_Router_Route(
-    'api/people/:id',
+    'api/people/:idp',
     array(
         'module'     => 'API',
         'controller' => 'people',
@@ -20,6 +21,29 @@ $apiRoute = new Zend_Controller_Router_Route(
     )
 );
 
-$router->addRoute('id', $apiRoute);
+$router->addRoute('idp', $apiRoute);
+
+$apiRoute = new Zend_Controller_Router_Route(
+    'api/states',
+    array(
+        'module'     => 'API',
+        'controller' => 'states',
+        'action'     => 'index'
+    )
+);
+
+$router->addRoute('apistates', $apiRoute);
+
+$apiRoute = new Zend_Controller_Router_Route(
+    'api/states/:ids',
+    array(
+        'module'     => 'API',
+        'controller' => 'states',
+        'action'     => 'get'
+    )
+);
+
+$router->addRoute('ids', $apiRoute);
+
 
 ?>

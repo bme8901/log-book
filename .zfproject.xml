@@ -58,6 +58,9 @@
             </dbTableDirectory>
             <modelFile modelName="FriendsDBMapper"/>
             <modelFile modelName="FriendsDB"/>
+            <modelFile modelName="Paul"/>
+            <modelFile modelName="StatesDB"/>
+            <modelFile modelName="StatesDBMapper"/>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
           <viewsDirectory>
