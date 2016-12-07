@@ -1,10 +1,11 @@
 <?php
 
-class API_Model_StatesDB
+class API_Model_VisitsDB
 {
-  protected $_ids;
-  protected $_stateabb;
-  protected $_statename;
+  protected $_idv;
+  protected $_personid;
+  protected $_stateid;
+  protected $_dateid;
 
   public function __construct(array $options = null)
   {
@@ -43,37 +44,48 @@ class API_Model_StatesDB
       return $this;
   }
 
-  public function setId($ids)
+  public function setId($idv)
   {
-      $this->_ids = (string) $ids;
+      $this->_idv = (string) $idv;
       return $this;
   }
 
   public function getId()
   {
-      return $this->_ids;
+      return $this->_idv;
   }
 
-  public function setStateAbb($stateabb)
+  public function setPerson($personid)
   {
-      $this->_stateabb = (string) $stateabb;
+      $this->_personid = (string) $personid;
       return $this;
   }
 
-  public function getStateAbb()
+  public function getPerson()
   {
-      return $this->_stateabb;
+      return $this->_personid;
   }
 
 
-  public function setStateName($statename)
+  public function setState($stateid)
   {
-      $this->_statename = (string) $statename;
+      $this->_stateid = (string) $stateid;
       return $this;
   }
 
-  public function getStateName()
+  public function getState()
   {
-      return $this->_statename;
+      return $this->_stateid;
+  }
+
+  public function setDate($dateid)
+  {
+      $this->_dateid = (string) $dateid;
+      return $this;
+  }
+
+  public function getDate()
+  {
+      return $this->_dateid;
   }
 }

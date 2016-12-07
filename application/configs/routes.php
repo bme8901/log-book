@@ -12,6 +12,8 @@ $apiRoute = new Zend_Controller_Router_Route(
 $router->addRoute('apipeople', $apiRoute);
 
 
+
+
 $apiRoute = new Zend_Controller_Router_Route(
     'api/people/:idp',
     array(
@@ -22,6 +24,8 @@ $apiRoute = new Zend_Controller_Router_Route(
 );
 
 $router->addRoute('idp', $apiRoute);
+
+
 
 $apiRoute = new Zend_Controller_Router_Route(
     'api/states',
@@ -34,6 +38,8 @@ $apiRoute = new Zend_Controller_Router_Route(
 
 $router->addRoute('apistates', $apiRoute);
 
+
+
 $apiRoute = new Zend_Controller_Router_Route(
     'api/states/:ids',
     array(
@@ -43,7 +49,37 @@ $apiRoute = new Zend_Controller_Router_Route(
     )
 );
 
+
 $router->addRoute('ids', $apiRoute);
+
+
+
+
+$apiRoute = new Zend_Controller_Router_Route(
+    'api/visits',
+    array(
+        'module'     => 'API',
+        'controller' => 'visits',
+        'action'     => 'index'
+    )
+);
+
+$router->addRoute('apivisits', $apiRoute);
+
+
+
+
+
+$apiRoute = new Zend_Controller_Router_Route(
+    'api/visits/:idv',
+    array(
+        'module'     => 'API',
+        'controller' => 'visits',
+        'action'     => 'get'
+    )
+);
+
+$router->addRoute('idv', $apiRoute);
 
 
 ?>

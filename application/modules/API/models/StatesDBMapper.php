@@ -24,35 +24,6 @@ class API_Model_StatesDBMapper
     return $this->_dbTable;
   }
 
-  /*public function save(API_Model_StatesDB $friends)
-    {
-        $data = array(
-            'id'   => $friends->getId(),
-            'food' => $friends->getFavFood(),
-            'created' => date('Y-m-d H:i:s'),
-        );
-
-        if (null === ($id = $friends->getId())) {
-            unset($data['id']);
-            $this->getDbTable()->insert($data);
-        } else {
-            $this->getDbTable()->update($data, array('id = ?' => $id));
-        }
-    }
-
-    public function find($id, API_Model_StatesDB $friends)
-    {
-        $result = $this->getDbTable()->find($id);
-        if (0 == count($result)) {
-            return;
-        }
-        $row = $result->current();
-        $friends->setId($row->id_p)
-                ->setFirstName($row->first_name)
-                ->setLastName($row->last_name)
-                ->setFavFood($row->fav_food);
-    }*/
-
     public function getById(){
 
       $requestURI = parse_url($_SERVER['REQUEST_URI']);
@@ -85,8 +56,8 @@ class API_Model_StatesDBMapper
           if($apiVars['states'] == $entryobj->id){
           $resultArray[] = [
             'id'        => $entryobj->id,
-            'stateabb' => $entryobj->stateabb,
-            'statename'  => $entryobj->statename
+            'stateabb'  => $entryobj->stateabb,
+            'statename' => $entryobj->statename
           ];
       }
     }
@@ -110,8 +81,8 @@ class API_Model_StatesDBMapper
         foreach($entries as $entryobj){
           $resultArray[] = [
             'id'        => $entryobj->id,
-            'stateabb' => $entryobj->stateabb,
-            'statename'  => $entryobj->statename
+            'stateabb'  => $entryobj->stateabb,
+            'statename' => $entryobj->statename
           ];
         }
 

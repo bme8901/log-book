@@ -11,8 +11,16 @@ class API_VisitsController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $apiData = new API_Model_VisitsDBMapper();
+        $this->view->entries = $apiData->fetchAll();
+    }
+
+    public function getAction()
+    {
+        // action body
+        $apiData = new API_Model_VisitsDBMapper();
+        $this->view->entries = $apiData->getById();
     }
 
 
 }
-

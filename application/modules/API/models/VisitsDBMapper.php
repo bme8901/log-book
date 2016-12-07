@@ -1,6 +1,6 @@
 <?php
 
-class API_Model_FriendsDBMapper
+class API_Model_VisitsDBMapper
 {
   protected $_dbTable;
 
@@ -19,7 +19,7 @@ class API_Model_FriendsDBMapper
   public function getDbTable()
   {
     if (null === $this->_dbTable){
-      $this->setDbTable('API_Model_DbTable_FriendsDB');
+      $this->setDbTable('API_Model_DbTable_VisitsDB');
     }
     return $this->_dbTable;
   }
@@ -44,22 +44,22 @@ class API_Model_FriendsDBMapper
         $result = $this->getDbTable()->fetchAll();
         $entries   = array();
         foreach ($result as $row) {
-            $entry = new API_Model_FriendsDB();
-            $entry->setId($row->id_p)
-                  ->setFirstName($row->first_name)
-                  ->setLastName($row->last_name)
-                  ->setFavFood($row->fav_food);
+            $entry = new API_Model_VisitsDB();
+            $entry->setId($row->id_v)
+                  ->setPerson($row->person_id)
+                  ->setState($row->state_id)
+                  ->setDate($row->date_id);
             $entries[] = $entry;
         }
 
 
         foreach($entries as $entryobj){
-          if($apiVars['people'] == $entryobj->id){
+          if($apiVars['visits'] == $entryobj->id){
           $resultArray[] = [
-            'id'        => $entryobj->id,
-            'firstname' => $entryobj->firstname,
-            'lastname'  => $entryobj->lastname,
-            'fav food'  => $entryobj->favfood
+            'id'     => $entryobj->id,
+            'person' => $entryobj->person,
+            'state'  => $entryobj->state,
+            'date'   => $entryobj->date
           ];
       }
     }
@@ -73,22 +73,22 @@ class API_Model_FriendsDBMapper
         $resultSet = $this->getDbTable()->fetchAll();
         $entries   = array();
         foreach ($resultSet as $row) {
-            $entry = new API_Model_FriendsDB();
-            $entry->setId($row->id_p)
-                  ->setFirstName($row->first_name)
-                  ->setLastName($row->last_name)
-                  ->setFavFood($row->fav_food);
+            $entry = new API_Model_VisitsDB();
+            $entry->setId($row->id_v)
+                  ->setPerson($row->person_id)
+                  ->setState($row->state_id)
+                  ->setDate($row->date_id);
             $entries[] = $entry;
         }
 
         foreach($entries as $entryobj){
           $resultArray[] = [
-            'id'        => $entryobj->id,
-            'firstname' => $entryobj->firstname,
-            'lastname'  => $entryobj->lastname,
-            'fav food'  => $entryobj->favfood
+            'id'     => $entryobj->id,
+            'person' => $entryobj->person,
+            'state'  => $entryobj->state,
+            'date'   => $entryobj->date
           ];
-        }
+      }
 
         echo json_encode($resultArray, JSON_PRETTY_PRINT);
 

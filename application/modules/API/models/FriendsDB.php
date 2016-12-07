@@ -79,7 +79,7 @@ class API_Model_FriendsDB
 
       public function setFavFood($favfood)
       {
-          $this->_favfood = (int) $favfood;
+          $this->_favfood = (string) $favfood;
           return $this;
       }
 

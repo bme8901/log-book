@@ -61,6 +61,8 @@
             <modelFile modelName="Paul"/>
             <modelFile modelName="StatesDB"/>
             <modelFile modelName="StatesDBMapper"/>
+            <modelFile modelName="VisitsDB"/>
+            <modelFile modelName="VisitsDBMapper"/>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
           <viewsDirectory>
