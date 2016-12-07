@@ -133,7 +133,7 @@ $('.visit_btn').click(function(event){
     event.preventDefault();
     $.ajax({
       type: 'POST',
-      url: 'API/visits',
+      url: 'api/visits',
       data: $('.visit_form').serialize(),
       success: function(){
         getDropdowns();
@@ -148,7 +148,7 @@ $('.person_btn').click(function(event){
       event.preventDefault();
       $.ajax({
         type: 'POST',
-        url: 'API/people',
+        url: 'api/people',
         data: $('.person_frm').serialize(),
         success: function(){
           getDropdowns();

@@ -1,5 +1,6 @@
 <?php
 
+
 class API_PeopleController extends Zend_Controller_Action
 {
 
@@ -11,9 +12,18 @@ class API_PeopleController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-        $apiData = new API_Model_FriendsDBMapper();
-        $this->view->entries = $apiData->fetchAll();
+        //$autoloader = Zend_Loader_Autoloader::getInstance();
+        //$autoloader->registerNamespace('Zend_');
+        $method = new Zend_Controller_Request_Http();
+        if($method->getMethod() == 'GET'){
+            $apiData = new API_Model_FriendsDBMapper();
+            $this->view->entries = $apiData->fetchAll();
+        }elseif($method->getMethod() == 'POST'){
+            $apiData = new API_Model_FriendsDBMapper();
+            $this->view->entries = $apiData->insertPerson();
+        }else{
+          /* Throw Exception */
+        }
 
     }
 
