@@ -24,7 +24,7 @@ class API_Model_FriendsDBMapper
     return $this->_dbTable;
   }
 
-  public function save(API_Model_FriendsDB $friends)
+  /*public function save(API_Model_FriendsDB $friends)
     {
         $data = array(
             'id'   => $friends->getId(),
@@ -51,6 +51,50 @@ class API_Model_FriendsDBMapper
                 ->setFirstName($row->first_name)
                 ->setLastName($row->last_name)
                 ->setFavFood($row->fav_food);
+    }*/
+
+    public function getById(){
+
+      $requestURI = parse_url($_SERVER['REQUEST_URI']);
+      $segments = explode('/', $requestURI['path']);
+      $apiVars = [];
+
+      $i = 2;
+      while($i < count($segments)) {
+        if($segments[$i+1]) {
+        $apiVars[$segments[$i]] = $segments[$i+1];
+        $i += 2;
+        } else {
+        $apiVars[$segments[$i]] = null;
+        $i++;
+        }
+      }
+      
+        $result = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($result as $row) {
+            $entry = new API_Model_FriendsDB();
+            $entry->setId($row->id_p)
+                  ->setFirstName($row->first_name)
+                  ->setLastName($row->last_name)
+                  ->setFavFood($row->fav_food);
+            $entries[] = $entry;
+        }
+
+
+        foreach($entries as $entryobj){
+          if($apiVars['people'] == $entryobj->id){
+          $resultArray[] = [
+            'id'        => $entryobj->id,
+            'firstname' => $entryobj->firstname,
+            'lastname'  => $entryobj->lastname,
+            'fav food'  => $entryobj->favfood
+          ];
+      }
+    }
+
+        echo json_encode($resultArray, JSON_PRETTY_PRINT);
+
     }
 
     public function fetchAll()
@@ -66,14 +110,16 @@ class API_Model_FriendsDBMapper
             $entries[] = $entry;
         }
 
-        $resultArray = [];
-        foreach($entries as $entry) {
+        foreach($entries as $entryobj){
           $resultArray[] = [
-            'firstname' => $entry->firstname,
-          ]
+            'id'        => $entryobj->id,
+            'firstname' => $entryobj->firstname,
+            'lastname'  => $entryobj->lastname,
+            'fav food'  => $entryobj->favfood
+          ];
         }
-        //return $entries;
-        print_r($entries);
+
+        echo json_encode($resultArray, JSON_PRETTY_PRINT);
 
     }
 

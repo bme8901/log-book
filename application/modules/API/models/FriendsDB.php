@@ -88,9 +88,5 @@ class API_Model_FriendsDB
           return $this->_favfood;
       }
 
-      public function toArray(){
-        return $this->
-      }
-
 
 }

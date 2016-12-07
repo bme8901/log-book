@@ -9,6 +9,7 @@ $('.people_id_list').append(function(){
       dataType: 'json',
       success: function(response){
         var len = response.length;
+        console.log(response);
         $('.people_id_list').empty();
         for(var i=0; i<len; i++){
           var id = response[i]['id_p'];
