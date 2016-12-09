@@ -11,9 +11,9 @@ Please reference the zend framework library through a symbolic link:
 ## Use
 
 Access the API at /api/...
-1. /api/people will return all people in the database.
-2. /api/visits will return all visits in the database.
-3. /api/.../$id will return all the people/visits for the person associated with $id.
+##1. /api/people will return all people in the database.
+##2. /api/visits will return all visits in the database.
+##3. /api/.../$id will return all the people/visits for the person associated with $id.
 
 ##Resources
 
