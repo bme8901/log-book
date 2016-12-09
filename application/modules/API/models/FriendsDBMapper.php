@@ -25,12 +25,12 @@ class API_Model_FriendsDBMapper
   }
 
   public function save(API_Model_FriendsDB $friend)
-    {
+  {
         $data = array(
-            'id'        => $friend->getId(),
-            'firstname' => $friend->getFirstName(),
-            'lastname'  => $friend->getLastName(),
-            'favfood'   => $friend->getLastName()
+            'id_p'       => $friend->getId(),
+            'first_name' => $friend->getFirstName(),
+            'last_name'  => $friend->getLastName(),
+            'fav_food'   => $friend->getLastName()
         );
 
         if (null === ($id = $friend->getId())) {
@@ -39,7 +39,7 @@ class API_Model_FriendsDBMapper
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }
-    }
+  }
 
     public function getById(){
 

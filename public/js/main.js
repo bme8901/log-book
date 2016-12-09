@@ -98,13 +98,13 @@ function displayStates(){
   $.ajax({
     type: 'GET',
     url: 'api/states',
+    dataType: 'json',
     success: function(data){
       $('.state_id_list').empty();
       $.each(data, function(n, elem){
-      console.log(data);
-        var s_id = data[n]['id_s'];
-        var s_abb = data[n]['state_abb'];
-        var s_name = data[n]['state_name'];
+        var s_id = data[n]["id"];
+        var s_abb = data[n]["stateabb"];
+        var s_name = data[n]["statename"];
         $('.state_id_list').append("<option value='"+s_id+"'' name='"+s_id+"'>"+s_abb+ " - "+s_name+"</option>");
       });
     }

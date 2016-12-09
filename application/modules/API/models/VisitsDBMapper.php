@@ -24,6 +24,23 @@ class API_Model_VisitsDBMapper
     return $this->_dbTable;
   }
 
+  public function save(API_Model_VisitsDB $visit)
+  {
+        $data = array(
+            'id_v'       => $visit->getId(),
+            'person_id'  => $visit->getPerson(),
+            'state_id'   => $visit->getState(),
+            'date_id'    => $visit->getDate()
+        );
+
+        if (null === ($id = $visit->getId())) {
+            unset($data['id']);
+            $this->getDbTable()->insert($data);
+        } else {
+            $this->getDbTable()->update($data, array('id = ?' => $id));
+        }
+  }
+
     public function getById(){
 
       $requestURI = parse_url($_SERVER['REQUEST_URI']);
