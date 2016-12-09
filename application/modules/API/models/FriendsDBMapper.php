@@ -24,6 +24,23 @@ class API_Model_FriendsDBMapper
     return $this->_dbTable;
   }
 
+  public function save(API_Model_FriendsDB $friend)
+    {
+        $data = array(
+            'id'        => $friend->getId(),
+            'firstname' => $friend->getFirstName(),
+            'lastname'  => $friend->getLastName(),
+            'favfood'   => $friend->getLastName()
+        );
+
+        if (null === ($id = $friend->getId())) {
+            unset($data['id']);
+            $this->getDbTable()->insert($data);
+        } else {
+            $this->getDbTable()->update($data, array('id = ?' => $id));
+        }
+    }
+
     public function getById(){
 
       $requestURI = parse_url($_SERVER['REQUEST_URI']);
