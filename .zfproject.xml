@@ -23,6 +23,7 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="Test"/>
+        <modelFile modelName="Init"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="API">
