@@ -4,7 +4,7 @@ Hello! Welcome to the repository for Project 4. The goal of this project was to 
 
 ## Installation
 
-Please reference the zend framework library through a symbolic link:
+Please navigate to the application/library folder reference the zend framework library through a symbolic link:
 
 ```ln -s /path/to/zendframework/library/Zend```
 
