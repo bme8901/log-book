@@ -1,6 +1,6 @@
 ## Synopsis
 
-Hello! This project effectively migrates Project 2 to the Zend Framework.
+Hello! Welcome to the repository for Project 4. The goal of this project was to effectively migrate the existing project to the Zend Framework. All functionality remains consistent with the previous.
 
 ## Installation
 
