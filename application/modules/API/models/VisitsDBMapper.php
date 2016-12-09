@@ -71,7 +71,7 @@ class API_Model_VisitsDBMapper
 
 
         foreach($entries as $entryobj){
-          if($apiVars['visits'] == $entryobj->id){
+          if($apiVars['visits'] == $entryobj->person){
           $resultArray[] = [
             'id'     => $entryobj->id,
             'person' => $entryobj->person,

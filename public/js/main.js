@@ -56,24 +56,33 @@ function displayShow(item){
 
 function displayData(){
 var user_id = $('.people_id_list').val();
-var user_num = user_id - 1;
+var user_num = user_id;
 $.ajax({
   type: 'GET',
   dataType: 'json',
-  url: 'api/visits/'+user_id,
+  url: 'api/people/'+user_num,
   success: function(data){
     $('.display_info').empty();
     $('.display_visits').empty();
-    var fname = data[user_num]['id'];
-    var lname = data[user_num]['id'];
-    var food = data[user_num]['id'];
+    var fname = data[0]["firstname"];
+    var lname = data[0]["lastname"];
+    var food = data[0]["fav food"];
     $('.display_info').append("<h6><code>"+fname+" "+lname+"</code> likes to eat <code>"+food+"</code></h6>");
-    $('.display_visits').append("<table class='table table-bordered' id='table_visits'></table>");
-    $('#table_visits').append("<tr><th>First</th><th>Last</th><th>State</th><th>Date</th></tr>");
-    //$.each(data, function(n, elem){
-    var date = data[user_num]['date_id'];
-    var state = data[user_num]['state_name'];
-    $('#table_visits').append("<tr><td><code>"+fname+"</code></td><td><code>"+lname+"</code></td><td> has visited <code>"+state+"</code></td> on <td><code>"+date+"</code></td></tr>");
+  }
+});
+  $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: 'api/visits/'+user_num,
+    success: function(data){
+      $('.display_visits').append("<table class='table table-bordered' id='table_visits'></table>");
+      $('#table_visits').append("<tr><th>First</th><th>Last</th><th>State</th><th>Date</th></tr>");
+    $.each(data, function(n, elem){
+    var date = data[n]["date"];
+    var state = data[n]["state"];
+    $('#table_visits').append("<tr><td><code>This</code></td><td><code>Person</code></td><td> has visited <code>"+state+"</code></td> on <td><code>"+date+"</code></td></tr>");
+  });
+  }
   //});
   /*else{
     $.ajax({
@@ -90,7 +99,6 @@ $.ajax({
       }
   });
 }*/
-}
 });
 }
 
