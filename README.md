@@ -1,6 +1,6 @@
 ## Synopsis
 
-Hello! Welcome to the repository for Project 4. The goal of this project was to effectively migrate Project 2 to the Zend Framework. All functionality remains consistent with the previous.
+Hello! Welcome to the repository for this project. This is simple full stack appplication built out using a modified LAMP stack.
 
 ## Installation
 
